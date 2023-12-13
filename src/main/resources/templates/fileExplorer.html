@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Explorer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<body>
+<div class="box-menu">
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li>
+                    <button class="logout" id="team">Teams</button>
+                </li>
+                <li id="arrow"><img src="/images/Vector 1.png"></li>
+                <li>
+                    <button class="logout" id="team">Team 1</button>
+                </li>
+            </ul>
+        </nav>
+        <div class="logout-img">
+            <img src="/images/logout.png" id="logout">
+            <div>
+                Logout
+            </div>
+        </div>
+    </div>
+    <div class="nav-bar" id="search">
+        <nav style="flex:2;">
+            <ul>
+                <li id="search-input">
+                    <div id="search-box">
+                        <img src="/images/search.png" id="search-img">
+                        <input type="text" placeholder="Search">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="container">
+            <div id="column" class="button">
+                <div><img src="/images/refresh.png"></div>
+                <div>refresh</div>
+            </div>
+            <div id="column" class="button">
+                <div><img src="/images/new-folder.png"></div>
+                <div>new folder</div>
+            </div>
+            <div id="column" class="button">
+                <div><img src="/images/share.png"></div>
+                <div>share</div>
+            </div>
+            <div id="column" class="button">
+                <div><img src="/images/upload.png"></div>
+                <div>upload</div>
+            </div>
+        </div>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="table-box" id="table">
+        <table class="file-table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>name</th>
+                <th></th>
+                <th>size</th>
+                <th></th>
+                <th>last modified</th>
+                <th></th>
+                <th>type</th>
+            </tr>
+            <tr class="file-table-leer"></tr>
+            </thead>
+            <tbody>
+            <tr th:each="fileName : ${fileNames}">
+                <td><input type="checkbox"></td>
+                <td th:href="'/files/' + ${fileName}" th:text="${fileName}"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
